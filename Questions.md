@@ -1,6 +1,4 @@
-Create a new pod called web-pod with image busybox.
-Allow the pod to be able to set system_time
-The container should sleep for 3200 seconds
+Create a new pod called web-pod with image busybox.Allow the pod to be able to set system_time.The container should sleep for 3200 seconds
 
 Answer-->
 kubectl run web-pod --image=busybox --command sleep 3200 --dry-run=client -o yaml > busybox.yml
@@ -36,3 +34,14 @@ spec:
 status: {}
 
 kubectl apply -f busybox.yml
+
+=========================================================
+Create a new deployment called myproject, with image nginx:1.16 and 1 replica. Next upgrade the deployment to version 1.17 using rolling​ update​. Make sure that the version upgrade is recorded in the resource annotation.
+##Createing a new deployment called myproject, with image nginx:1.16 and 1 replica
+kubectl create deployment myproject --image=nginx:1.16 
+kubectl get deployment
+kubectl describe deployment myproject
+##upgrade the deployment to version 1.17 using rolling​ update.Make sure that the version upgrade is recorded in the resource annotation.
+kubectl set image deployment/myproject nginx=nginx:1.17 --record
+kubectl rollout history deployment myproject
+
