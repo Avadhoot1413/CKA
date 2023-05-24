@@ -51,3 +51,11 @@ kubectl rollout history deployment myproject
 Create a new deployment called my-deployment. Scale the deployment to 3 replicas.Make sure desired number of pod always running.
 Answer -->
 kubectl create deployment my-deployment --image=nginx --replicas=3
+
+==================================================================================================================================================================
+
+Deploy a web-nginx pod using the nginx:1.17 image with the labels set to tier=web-app
+kubectl run web-nginx --image=nginx:1.17 --labels tier=web-app
+
+==================================================================================================================================================================
+
